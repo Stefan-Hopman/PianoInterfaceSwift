@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     //MARK: Key Properties
     var numberOfKeys: Int = 10
+    var totalNumberOfWhiteKeys:Int = 52 //52
+    var totalNumberOfBlackKeys:Int = 36
     var xPositionKey: Float = 0.0
     var yPositionKey: Float = 0.0
     
@@ -29,12 +31,15 @@ class ViewController: UIViewController {
     //MARK: Screen Loading
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //finds the height and width of the key we want to use
-        let heightKey: Float = Float(contentView.layer.bounds.height)
+        //finds the height and width of the white keys
+        let heightOfWhiteKeys: Float = Float(contentView.layer.bounds.height)
         let contentViewWidth: Float = Float(contentView.layer.bounds.width)
-        let widthKey: Float = contentViewWidth / Float(numberOfKeys)
-        addKeys(heightKey: heightKey, widthKey: widthKey)
+        let widthOfWhiteKeys: Float = contentViewWidth / Float(totalNumberOfWhiteKeys)
+        //finds the height and width of the black keys
+        let heightOfBlackKeys: Float = heightOfWhiteKeys / 1.75
+        let widthOfBlackKeys: Float = widthOfWhiteKeys / 1.5
+        //calls the function to generate keys
+        generateKeys(heightOfWhiteKeys: heightOfWhiteKeys, widthOfWhiteKeys: widthOfWhiteKeys, heightOfBlackKeys: heightOfBlackKeys, widthOfBlackKeys: widthOfBlackKeys)
     }
     
     //MARK: Random Color Function
@@ -45,24 +50,57 @@ class ViewController: UIViewController {
         let ranColor = CGColor(red: ranRed, green: ranGreen, blue: ranBlue, alpha: 1.0)//generates a random color code
         return ranColor
     }
-   
-    //MARK: Generating Keys
-    func addKeys(heightKey: Float, widthKey: Float) {
+    //MARK: Set Properties Of White Keys
+    func whiteKeySetProperties(whiteKey: CALayer) -> CALayer {
+        whiteKey.backgroundColor = UIColor.white.cgColor
+        whiteKey.borderColor = UIColor.black.cgColor
+        whiteKey.borderWidth = 1.5
+        return whiteKey
+    }
     
-        for _ in 1 ... numberOfKeys {
-            let whiteKey : CALayer = CALayer()
-            // size and position
-            whiteKey.frame.origin.x = CGFloat(xPositionKey) // set the x position
-            whiteKey.frame.origin.y = CGFloat(yPositionKey) // set the y position
-            whiteKey.frame.size.width = CGFloat(widthKey)   // set the width
-            whiteKey.frame.size.height = CGFloat(heightKey) // set the height
-            // border properties
-            whiteKey.borderColor = randomColor()            // sets the border color
-            whiteKey.borderWidth = 5.0                      // sets the border width
-            whiteKey.backgroundColor = randomColor()        // sets the border color
-            contentViewLayer.addSublayer(whiteKey)          //adding a sublayer to the content view
-            xPositionKey += widthKey                        //increases the xposition
+    //MARK: Set Properties Of Black Keys
+    func blackKeySetProperties(blackKey: CALayer) -> CALayer {
+        blackKey.borderColor = UIColor.black.cgColor
+        blackKey.backgroundColor = UIColor.black.cgColor
+        blackKey.borderWidth = 1.0
+        return blackKey
+    }
+    
+    //MARK: Generate Keys
+    func generateKeys(heightOfWhiteKeys: Float, widthOfWhiteKeys: Float, heightOfBlackKeys: Float, widthOfBlackKeys: Float){
+        //counter variables
+        var whiteKeyCount:Int = 0  //keeps track of the count of the white keys
+        var blackKeyCount:Int = 0  //keeps track of the count of the black keys
+        var twoBlackKeys = false   //checks for a pattern of two in the generation of the black keys
+        
+        for i in 0..<totalNumberOfWhiteKeys{
+            var whiteKey: CALayer = CALayer()  //creates the white key
+            let whiteKeyFrame = CGRect.init(x: CGFloat(widthOfWhiteKeys) * CGFloat(i), y: 0, width: CGFloat(widthOfWhiteKeys), height: CGFloat(heightOfWhiteKeys))
+            whiteKey.frame = whiteKeyFrame                        //initialize and set the frame of the white keys
+            whiteKey = whiteKeySetProperties(whiteKey: whiteKey)  //sets the properties of the key
+            contentViewLayer.insertSublayer(whiteKey, at: 0)      //inserts the sublayer into the content view
+            if(blackKeyCount < totalNumberOfBlackKeys){
+                //advanced algorithim to correctly place the black keys
+                let initialBlackKey:Bool = (i == 1)
+                let groupOfTwo = (twoBlackKeys && whiteKeyCount == 3)
+                let groupOfThree = (!twoBlackKeys && whiteKeyCount == 4)
+                if (initialBlackKey || groupOfTwo || groupOfThree) {
+                    twoBlackKeys = !twoBlackKeys
+                    whiteKeyCount = 0;
+                }
+                else{
+                    let blackKeyFrame: CGRect = .init(x: whiteKeyFrame.origin.x + whiteKeyFrame.size.width - (CGFloat(widthOfBlackKeys)/2), y: 0, width: CGFloat(widthOfBlackKeys), height: CGFloat(heightOfBlackKeys))
+                    var blackKey: CALayer = CALayer()
+                    blackKey.frame = blackKeyFrame
+                    blackKey = blackKeySetProperties(blackKey: blackKey) //sets the properties of the black keys
+                    blackKeyCount += 1
+                    contentViewLayer.insertSublayer(blackKey, at: 1)
+                }
+            }
+         whiteKeyCount += 1
         }
     }
+    
+    
 }
 

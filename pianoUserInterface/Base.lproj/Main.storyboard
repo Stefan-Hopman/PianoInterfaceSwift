@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="334" width="414" height="229"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-qW-KIs" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="229"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1560" height="229"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="7zC-KB-Ffk"/>
+                                            <constraint firstAttribute="width" constant="1560" id="7zC-KB-Ffk"/>
                                         </constraints>
                                     </view>
                                 </subviews>
