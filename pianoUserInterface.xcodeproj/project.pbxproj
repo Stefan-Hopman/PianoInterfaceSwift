@@ -15,6 +15,8 @@
 		F83C8AD6267E83C50074B66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83C8AD4267E83C50074B66A /* LaunchScreen.storyboard */; };
 		F83C8AE1267E83C60074B66A /* pianoUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AE0267E83C60074B66A /* pianoUserInterfaceTests.swift */; };
 		F83C8AEC267E83C60074B66A /* pianoUserInterfaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AEB267E83C60074B66A /* pianoUserInterfaceUITests.swift */; };
+		F8925412268616240009A7D1 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925411268616240009A7D1 /* Layer.swift */; };
+		F8925415268622A80009A7D1 /* PianoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925414268622A80009A7D1 /* PianoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		F83C8AE7267E83C60074B66A /* pianoUserInterfaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pianoUserInterfaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83C8AEB267E83C60074B66A /* pianoUserInterfaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pianoUserInterfaceUITests.swift; sourceTree = "<group>"; };
 		F83C8AED267E83C60074B66A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8925411268616240009A7D1 /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		F8925414268622A80009A7D1 /* PianoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		F83C8AC8267E83B90074B66A /* pianoUserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				F8925413268621B80009A7D1 /* Views */,
+				F89254102686160A0009A7D1 /* Extensions */,
 				F83C8AC9267E83B90074B66A /* AppDelegate.swift */,
 				F83C8ACB267E83B90074B66A /* SceneDelegate.swift */,
 				F83C8ACD267E83B90074B66A /* ViewController.swift */,
@@ -126,6 +132,22 @@
 				F83C8AED267E83C60074B66A /* Info.plist */,
 			);
 			path = pianoUserInterfaceUITests;
+			sourceTree = "<group>";
+		};
+		F89254102686160A0009A7D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8925411268616240009A7D1 /* Layer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8925413268621B80009A7D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8925414268622A80009A7D1 /* PianoView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +283,8 @@
 				F83C8ACE267E83B90074B66A /* ViewController.swift in Sources */,
 				F83C8ACA267E83B90074B66A /* AppDelegate.swift in Sources */,
 				F83C8ACC267E83B90074B66A /* SceneDelegate.swift in Sources */,
+				F8925412268616240009A7D1 /* Layer.swift in Sources */,
+				F8925415268622A80009A7D1 /* PianoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
