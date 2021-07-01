@@ -15,6 +15,8 @@
 		F83C8AD6267E83C50074B66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83C8AD4267E83C50074B66A /* LaunchScreen.storyboard */; };
 		F83C8AE1267E83C60074B66A /* pianoUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AE0267E83C60074B66A /* pianoUserInterfaceTests.swift */; };
 		F83C8AEC267E83C60074B66A /* pianoUserInterfaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AEB267E83C60074B66A /* pianoUserInterfaceUITests.swift */; };
+		F85213F3268D70DE00B8D3E8 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85213F2268D70DE00B8D3E8 /* AudioPlayer.swift */; };
+		F85213F5268D73D400B8D3E8 /* microsoft.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F85213F4268D73D400B8D3E8 /* microsoft.mp3 */; };
 		F8925412268616240009A7D1 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925411268616240009A7D1 /* Layer.swift */; };
 		F8925415268622A80009A7D1 /* PianoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925414268622A80009A7D1 /* PianoView.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		F83C8AE7267E83C60074B66A /* pianoUserInterfaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pianoUserInterfaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83C8AEB267E83C60074B66A /* pianoUserInterfaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pianoUserInterfaceUITests.swift; sourceTree = "<group>"; };
 		F83C8AED267E83C60074B66A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F85213F2268D70DE00B8D3E8 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		F85213F4268D73D400B8D3E8 /* microsoft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = microsoft.mp3; sourceTree = "<group>"; };
 		F8925411268616240009A7D1 /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		F8925414268622A80009A7D1 /* PianoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +107,7 @@
 		F83C8AC8267E83B90074B66A /* pianoUserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				F85213F1268D70C100B8D3E8 /* AudioPlayer */,
 				F8925413268621B80009A7D1 /* Views */,
 				F89254102686160A0009A7D1 /* Extensions */,
 				F83C8AC9267E83B90074B66A /* AppDelegate.swift */,
@@ -111,6 +116,7 @@
 				F83C8ACF267E83B90074B66A /* Main.storyboard */,
 				F83C8AD2267E83C50074B66A /* Assets.xcassets */,
 				F83C8AD4267E83C50074B66A /* LaunchScreen.storyboard */,
+				F85213F4268D73D400B8D3E8 /* microsoft.mp3 */,
 				F83C8AD7267E83C50074B66A /* Info.plist */,
 			);
 			path = pianoUserInterface;
@@ -132,6 +138,14 @@
 				F83C8AED267E83C60074B66A /* Info.plist */,
 			);
 			path = pianoUserInterfaceUITests;
+			sourceTree = "<group>";
+		};
+		F85213F1268D70C100B8D3E8 /* AudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F85213F2268D70DE00B8D3E8 /* AudioPlayer.swift */,
+			);
+			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
 		F89254102686160A0009A7D1 /* Extensions */ = {
@@ -254,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83C8AD6267E83C50074B66A /* LaunchScreen.storyboard in Resources */,
+				F85213F5268D73D400B8D3E8 /* microsoft.mp3 in Resources */,
 				F83C8AD3267E83C50074B66A /* Assets.xcassets in Resources */,
 				F83C8AD1267E83B90074B66A /* Main.storyboard in Resources */,
 			);
@@ -285,6 +300,7 @@
 				F83C8ACC267E83B90074B66A /* SceneDelegate.swift in Sources */,
 				F8925412268616240009A7D1 /* Layer.swift in Sources */,
 				F8925415268622A80009A7D1 /* PianoView.swift in Sources */,
+				F85213F3268D70DE00B8D3E8 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

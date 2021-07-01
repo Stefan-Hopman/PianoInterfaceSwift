@@ -15,14 +15,23 @@ class PianoView: UIView{
         
         for touch in touches {
             let location = touch.location(in: self) //this function finds all your presses and the for loop is for multiple touces
-            findSelectedKey(touchLocation: location)
+            let keyPressed: Int = findSelectedKey(touchLocation: location)
+            keysHeldDown.append(keyPressed)
+            orginalColorsOfKey.append(keyArray[keyPressed].backgroundColor!)
+            keyArray[keyPressed].backgroundColor = UIColor.blue.cgColor
             //print("touchBegan: ", location)
+            playSound()
         }
         
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //print("touchesEnded")
+        for x in 0..<orginalColorsOfKey.count {
+            keyArray[keysHeldDown[x]].backgroundColor = orginalColorsOfKey[x]
+        }
+        keysHeldDown.removeAll()
+        orginalColorsOfKey.removeAll()
+        stopSound()
     }
     
     //MARK: Key Properties
@@ -32,6 +41,8 @@ class PianoView: UIView{
     var xPositionKey: Float = 0.0
     var yPositionKey: Float = 0.0
     var keyArray: [CALayer] = []
+    var keysHeldDown: [Int] = []
+    var orginalColorsOfKey: [CGColor] = []
     func printKeyArray(){
         print(keyArray.count)
     }
@@ -106,31 +117,37 @@ class PianoView: UIView{
         }
     }
     
-    func findSelectedKey(touchLocation: CGPoint){
+    func findSelectedKey(touchLocation: CGPoint) -> Int {
         for j in 0..<keyArray.count {
             //goes through each key and see's if they mathc in position and height
             if(touchLocation.x >= keyArray[j].frame.origin.x && touchLocation.x <= (keyArray[j].frame.origin.x + keyArray[j].frame.size.width) && touchLocation.y <= keyArray[j].frame.size.height){
                 //checks to see if it was a black key or white key pressed
                 if(j == 87){ //checks to see if it the ultimate key 
                     print("Key Number \(j+1)")
+                    return j
                 }
                 else{
                     if(touchLocation.x >= keyArray[j+1].frame.origin.x && touchLocation.x <= (keyArray[j+1].frame.origin.x + keyArray[j+1].frame.size.width) && touchLocation.y <= keyArray[j+1].frame.size.height){
                         if(keyArray[j].frame.size.height < keyArray[j+1].frame.size.height){
                             print("Key Number \(j+1)")
-                            break
+                            return j
+                            
                         }
                         else{
                             print("Key Number \(j+2)")
-                            break
+                            return j
+                            
                         }
                     }
                         else{
                             print("Key Number \(j+1)")
-                            break
+                            return j
+                            
                         }
                 }
             }
         }
+        return 0
     }
+
 }
