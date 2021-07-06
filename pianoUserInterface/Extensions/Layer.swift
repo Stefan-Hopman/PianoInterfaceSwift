@@ -17,6 +17,13 @@ extension CALayer {
         cornerRadius = 7
         maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
+    
+    func setBackground(_ color: UIColor) {
+        backgroundColor = color.cgColor
+    }
+    
+    
+    
 }
 
 //extension UIView {
@@ -26,3 +33,33 @@ extension CALayer {
 //        mask.path = path.cgPath
 //        layer.mask = mask
 //    }
+
+
+class Key: CALayer {
+    var isSelected: Bool = false {
+        didSet {
+            print("Did Set called in Key")
+        }
+    }
+    
+    var keyIndex: Int = -1
+}
+
+class BlackKey: Key {
+    
+    override var isSelected: Bool {
+        didSet {
+            setBackground(isSelected ? .blue : .black)
+        }
+    }
+    
+    
+}
+
+class WhiteKey: Key {
+    override var isSelected: Bool {
+        didSet {
+            setBackground(isSelected ? .blue : .white)
+        }
+    }
+}

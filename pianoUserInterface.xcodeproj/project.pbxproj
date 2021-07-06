@@ -19,6 +19,7 @@
 		F85213F5268D73D400B8D3E8 /* microsoft.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F85213F4268D73D400B8D3E8 /* microsoft.mp3 */; };
 		F8925412268616240009A7D1 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925411268616240009A7D1 /* Layer.swift */; };
 		F8925415268622A80009A7D1 /* PianoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925414268622A80009A7D1 /* PianoView.swift */; };
+		F8977B5F2694DD4C00566561 /* sustainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8977B5E2694DD4C00566561 /* sustainButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F85213F4268D73D400B8D3E8 /* microsoft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = microsoft.mp3; sourceTree = "<group>"; };
 		F8925411268616240009A7D1 /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		F8925414268622A80009A7D1 /* PianoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoView.swift; sourceTree = "<group>"; };
+		F8977B5E2694DD4C00566561 /* sustainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sustainButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		F83C8AC8267E83B90074B66A /* pianoUserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				F8977B602694DD9600566561 /* Buttons */,
 				F85213F1268D70C100B8D3E8 /* AudioPlayer */,
 				F8925413268621B80009A7D1 /* Views */,
 				F89254102686160A0009A7D1 /* Extensions */,
@@ -162,6 +165,14 @@
 				F8925414268622A80009A7D1 /* PianoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F8977B602694DD9600566561 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F8977B5E2694DD4C00566561 /* sustainButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83C8ACE267E83B90074B66A /* ViewController.swift in Sources */,
+				F8977B5F2694DD4C00566561 /* sustainButton.swift in Sources */,
 				F83C8ACA267E83B90074B66A /* AppDelegate.swift in Sources */,
 				F83C8ACC267E83B90074B66A /* SceneDelegate.swift in Sources */,
 				F8925412268616240009A7D1 /* Layer.swift in Sources */,

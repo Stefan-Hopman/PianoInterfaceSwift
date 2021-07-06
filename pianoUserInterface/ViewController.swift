@@ -11,6 +11,10 @@ class ViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var pianoView: PianoView! //content in the scrolling piano
+   
+    @IBOutlet weak var scrollView: UIScrollView! //scroll variable to us to control whether the piano can scroll or not
+    @IBOutlet weak var lockButton: UIButton!
+   
     
     //MARK: Screen Loading
     override func viewDidLoad() {
@@ -24,7 +28,24 @@ class ViewController: UIViewController {
         let widthOfBlackKeys: Float = widthOfWhiteKeys / 1.5
         //calls the function to generate keys
         pianoView.generateKeys(heightOfWhiteKeys: heightOfWhiteKeys, widthOfWhiteKeys: widthOfWhiteKeys, heightOfBlackKeys: heightOfBlackKeys, widthOfBlackKeys: widthOfBlackKeys)
-        pianoView.printKeyArray()
+    }
+ 
+//    @IBAction func sustainControl(_ sender: Any) {
+//        if(sustainOn == false){
+//            sustainOn = true
+//        }
+//        else{
+//            sustainOn = false
+//        }
+//    }
+    
+    @IBAction func disableScrolling(_ sender: Any) {
+        
+        if(scrollView.isScrollEnabled == true){
+            scrollView.isScrollEnabled = false
+        }
+        else{
+            scrollView.isScrollEnabled = true
+        }
     }
 }
-

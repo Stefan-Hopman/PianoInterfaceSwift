@@ -22,10 +22,12 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-qW-KIs" userLabel="ContentView" customClass="PianoView" customModule="pianoUserInterface" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="1560" height="229"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1560" id="7zC-KB-Ffk"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="sustainButton" destination="DKP-oI-hbn" id="cHk-rr-csL"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -37,28 +39,57 @@
                                     <constraint firstAttribute="bottom" secondItem="hLY-qW-KIs" secondAttribute="bottom" id="dxP-V8-Z9f"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-fu-xJK" userLabel="Lock Button">
+                                <rect key="frame" x="20" y="295" width="46" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="MLA-v8-RSE"/>
+                                    <constraint firstAttribute="height" constant="31" id="lbM-yN-ZCI"/>
+                                </constraints>
+                                <state key="normal" image="scrollLock"/>
+                                <connections>
+                                    <action selector="disableScrolling:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rGb-8l-h4Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKP-oI-hbn" userLabel="Sustain Button">
+                                <rect key="frame" x="348" y="295" width="46" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="cmc-8o-b8m"/>
+                                    <constraint firstAttribute="height" constant="31" id="xog-9k-s50"/>
+                                </constraints>
+                                <state key="normal" image="sustain"/>
+                                <connections>
+                                    <action selector="sustainSwitch:" destination="sgD-x9-5ij" eventType="touchUpInside" id="51v-8Y-Ztt"/>
+                                    <action selector="sustainSwitch:" destination="hLY-qW-KIs" eventType="touchUpInside" id="Kmm-3P-ESh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
+                            <constraint firstItem="cv0-fu-xJK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5VK-HL-NsF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2n0-GU-aEt" secondAttribute="bottom" constant="299" id="IAa-8d-81D"/>
                             <constraint firstItem="2n0-GU-aEt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ShD-ji-D3E"/>
+                            <constraint firstItem="2n0-GU-aEt" firstAttribute="top" secondItem="cv0-fu-xJK" secondAttribute="bottom" constant="8" symbolic="YES" id="Yes-eZ-kUu"/>
+                            <constraint firstItem="2n0-GU-aEt" firstAttribute="top" secondItem="DKP-oI-hbn" secondAttribute="bottom" constant="8" symbolic="YES" id="aDp-Y5-w2H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DKP-oI-hbn" secondAttribute="trailing" constant="20" id="fT7-wq-RR8"/>
                             <constraint firstItem="2n0-GU-aEt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qQT-BG-6fn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lockButton" destination="cv0-fu-xJK" id="tDW-qE-4Hi"/>
                         <outlet property="pianoView" destination="hLY-qW-KIs" id="2xJ-Wr-eLR"/>
+                        <outlet property="scrollView" destination="2n0-GU-aEt" id="wiY-Tt-wlq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="sgD-x9-5ij" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="scrollLock" width="30" height="30"/>
+        <image name="sustain" width="30" height="30"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
