@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         let widthOfBlackKeys: Float = widthOfWhiteKeys / 1.5
         //calls the function to generate keys
         pianoView.generateKeys(heightOfWhiteKeys: heightOfWhiteKeys, widthOfWhiteKeys: widthOfWhiteKeys, heightOfBlackKeys: heightOfBlackKeys, widthOfBlackKeys: widthOfBlackKeys)
+        scrollView.delaysContentTouches = false
     }
  
 //    @IBAction func sustainControl(_ sender: Any) {

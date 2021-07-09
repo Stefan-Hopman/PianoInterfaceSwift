@@ -11,7 +11,8 @@ class PianoView: UIView{
     
     
     @IBOutlet weak var sustainButton: UIButton!
-    
+    var delaysContentTouches: Bool {false}
+    //delaysContentTouches = false
     //MARK: Look At It With Joga Singh
 //    override func awakeFromNib() {
 //        super.awakeFromNib()
@@ -31,7 +32,7 @@ class PianoView: UIView{
     
     
     //MARK: Touch Functions
-    //All the functions check if sustain is pressed 
+    //All the functions check if sustain is pressed
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if(sustainButton.isSelected == false){
             sustainOffTouchesBegan(touches)
@@ -102,6 +103,14 @@ class PianoView: UIView{
             let whiteKey: WhiteKey = WhiteKey()  //creates the white key
             let whiteKeyFrame = CGRect.init(x: CGFloat(widthOfWhiteKeys) * CGFloat(i), y: 0, width: CGFloat(widthOfWhiteKeys), height: CGFloat(heightOfWhiteKeys))
             whiteKey.frame = whiteKeyFrame //initialize and set the frame of the white keys
+            let keyLabel = CATextLayer()
+            keyLabel.font = "Helvetica-Bold" as CFTypeRef
+            keyLabel.fontSize = 12
+            keyLabel.frame = CGRect(x: whiteKey.frame.origin.x + whiteKey.bounds.midX - 6, y: whiteKey.frame.height*(3/4), width: CGFloat(widthOfWhiteKeys), height: CGFloat(heightOfWhiteKeys))
+            keyLabel.string = String(keyIndex)
+            keyLabel.foregroundColor = UIColor.red.cgColor
+            keyLabel.isHidden = false
+            contentViewLayer.insertSublayer(keyLabel, at: 1)
             whiteKey.keyIndex = keyIndex
             keyIndex += 1
             contentViewLayer.insertSublayer(whiteKey, at: 0)      //inserts the sublayer into the content view
@@ -122,6 +131,14 @@ class PianoView: UIView{
                     let blackKey: BlackKey = BlackKey()
                     blackKey.frame = blackKeyFrame
                     blackKey.keyIndex = keyIndex
+                    let keyLabel = CATextLayer()
+                    keyLabel.font = "Helvetica-Bold" as CFTypeRef
+                    keyLabel.fontSize = 10
+                    keyLabel.frame = CGRect(x: blackKey.frame.origin.x + blackKey.bounds.midX - 5, y: blackKey.frame.height*(3/4), width: CGFloat(widthOfBlackKeys), height: CGFloat(heightOfBlackKeys))
+                    keyLabel.string = String(keyIndex)
+                    keyLabel.foregroundColor = UIColor.red.cgColor
+                    keyLabel.isHidden = false
+                    contentViewLayer.insertSublayer(keyLabel, at: 1)
                     keyIndex += 1
                     blackKey.setKeyProperties(.black, .black, 1.0)
                     blackKeyCount += 1
