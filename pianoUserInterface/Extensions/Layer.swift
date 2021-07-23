@@ -26,22 +26,9 @@ extension CALayer {
     
 }
 
-//extension UIView {
-//   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-//        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-//        let mask = CAShapeLayer()
-//        mask.path = path.cgPath
-//        layer.mask = mask
-//    }
-
-
 class Key: CALayer {
-    var isSelected: Bool = false {
-        didSet {
-            print("Did Set called in Key")
-        }
-    }
-    
+    var isSelected: Bool = false
+    var frequency = getFrequency()
     var keyIndex: Int = -1
 }
 

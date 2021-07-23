@@ -14,7 +14,10 @@ class ViewController: UIViewController {
    
     @IBOutlet weak var scrollView: UIScrollView! //scroll variable to us to control whether the piano can scroll or not
     @IBOutlet weak var lockButton: UIButton!
-   
+    
+    
+    @IBOutlet weak var sustainButton: UIButton!
+    
     
     //MARK: Screen Loading
     override func viewDidLoad() {
@@ -29,24 +32,23 @@ class ViewController: UIViewController {
         //calls the function to generate keys
         pianoView.generateKeys(heightOfWhiteKeys: heightOfWhiteKeys, widthOfWhiteKeys: widthOfWhiteKeys, heightOfBlackKeys: heightOfBlackKeys, widthOfBlackKeys: widthOfBlackKeys)
         scrollView.delaysContentTouches = false
+        sustainButton.layer.cornerRadius = sustainButton.frame.width / 2
     }
- 
-//    @IBAction func sustainControl(_ sender: Any) {
-//        if(sustainOn == false){
-//            sustainOn = true
-//        }
-//        else{
-//            sustainOn = false
-//        }
-//    }
+    //MARK: UIButtons
     
-    @IBAction func disableScrolling(_ sender: Any) {
-        
+    //controls the sustain button
+    @IBAction func sustainControl(_ sender: UIButton) {
+        pianoView.isSustainSelected.toggle()
+        sender.isButtonSelected(isSelected: pianoView.isSustainSelected)
+    }
+    //controls the sustain button
+    @IBAction func disableScrolling(_ sender: UIButton) {
         if(scrollView.isScrollEnabled == true){
             scrollView.isScrollEnabled = false
         }
         else{
             scrollView.isScrollEnabled = true
         }
+        sender.setBackgroundImage(isSelected: scrollView.isScrollEnabled)
     }
 }

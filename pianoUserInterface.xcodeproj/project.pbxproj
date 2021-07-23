@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F82561A3269F04AD00490127 /* SynthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82561A2269F04AD00490127 /* SynthViewController.swift */; };
+		F82561A6269F12EE00490127 /* textFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82561A5269F12EE00490127 /* textFieldDelegate.swift */; };
+		F82561A9269F312300490127 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82561A8269F312300490127 /* Synth.swift */; };
+		F82D97D926A1132B0080E2A2 /* Oscillator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D97D826A1132B0080E2A2 /* Oscillator.swift */; };
 		F83C8ACA267E83B90074B66A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AC9267E83B90074B66A /* AppDelegate.swift */; };
 		F83C8ACC267E83B90074B66A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8ACB267E83B90074B66A /* SceneDelegate.swift */; };
 		F83C8ACE267E83B90074B66A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8ACD267E83B90074B66A /* ViewController.swift */; };
@@ -15,11 +19,16 @@
 		F83C8AD6267E83C50074B66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83C8AD4267E83C50074B66A /* LaunchScreen.storyboard */; };
 		F83C8AE1267E83C60074B66A /* pianoUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AE0267E83C60074B66A /* pianoUserInterfaceTests.swift */; };
 		F83C8AEC267E83C60074B66A /* pianoUserInterfaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C8AEB267E83C60074B66A /* pianoUserInterfaceUITests.swift */; };
+		F851E94A26AB321E00920723 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851E94926AB321E00920723 /* Array.swift */; };
 		F85213F3268D70DE00B8D3E8 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85213F2268D70DE00B8D3E8 /* AudioPlayer.swift */; };
 		F85213F5268D73D400B8D3E8 /* microsoft.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F85213F4268D73D400B8D3E8 /* microsoft.mp3 */; };
 		F8925412268616240009A7D1 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925411268616240009A7D1 /* Layer.swift */; };
 		F8925415268622A80009A7D1 /* PianoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8925414268622A80009A7D1 /* PianoView.swift */; };
 		F8977B5F2694DD4C00566561 /* sustainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8977B5E2694DD4C00566561 /* sustainButton.swift */; };
+		F8B101EB2698B940004DFFDD /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B101EA2698B940004DFFDD /* Button.swift */; };
+		F8BDBBB426AA62830020C8B2 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDBBB326AA62830020C8B2 /* AudioEngine.swift */; };
+		F8BDBBB626AA7B590020C8B2 /* FrequencyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDBBB526AA7B580020C8B2 /* FrequencyGenerator.swift */; };
+		F8BDBBB826AA99720020C8B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDBBB726AA99720020C8B2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F82561A2269F04AD00490127 /* SynthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthViewController.swift; sourceTree = "<group>"; };
+		F82561A5269F12EE00490127 /* textFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldDelegate.swift; sourceTree = "<group>"; };
+		F82561A8269F312300490127 /* Synth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
+		F82D97D826A1132B0080E2A2 /* Oscillator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oscillator.swift; sourceTree = "<group>"; };
 		F83C8AC6267E83B90074B66A /* pianoUserInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pianoUserInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83C8AC9267E83B90074B66A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F83C8ACB267E83B90074B66A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,11 +67,16 @@
 		F83C8AE7267E83C60074B66A /* pianoUserInterfaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pianoUserInterfaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83C8AEB267E83C60074B66A /* pianoUserInterfaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pianoUserInterfaceUITests.swift; sourceTree = "<group>"; };
 		F83C8AED267E83C60074B66A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F851E94926AB321E00920723 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		F85213F2268D70DE00B8D3E8 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		F85213F4268D73D400B8D3E8 /* microsoft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = microsoft.mp3; sourceTree = "<group>"; };
 		F8925411268616240009A7D1 /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		F8925414268622A80009A7D1 /* PianoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoView.swift; sourceTree = "<group>"; };
 		F8977B5E2694DD4C00566561 /* sustainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sustainButton.swift; sourceTree = "<group>"; };
+		F8B101EA2698B940004DFFDD /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		F8BDBBB326AA62830020C8B2 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		F8BDBBB526AA7B580020C8B2 /* FrequencyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyGenerator.swift; sourceTree = "<group>"; };
+		F8BDBBB726AA99720020C8B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +104,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F82561A4269F12B100490127 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F83C8ACD267E83B90074B66A /* ViewController.swift */,
+				F82561A2269F04AD00490127 /* SynthViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F82561A7269F12F500490127 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F82561A5269F12EE00490127 /* textFieldDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		F82D97D726A113170080E2A2 /* Oscillator */ = {
+			isa = PBXGroup;
+			children = (
+				F82D97D826A1132B0080E2A2 /* Oscillator.swift */,
+			);
+			path = Oscillator;
+			sourceTree = "<group>";
+		};
 		F83C8ABD267E83B90074B66A = {
 			isa = PBXGroup;
 			children = (
@@ -109,13 +152,16 @@
 		F83C8AC8267E83B90074B66A /* pianoUserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				F8977B602694DD9600566561 /* Buttons */,
 				F85213F1268D70C100B8D3E8 /* AudioPlayer */,
-				F8925413268621B80009A7D1 /* Views */,
 				F89254102686160A0009A7D1 /* Extensions */,
+				F82D97D726A113170080E2A2 /* Oscillator */,
+				F82561A4269F12B100490127 /* ViewController */,
+				F82561A7269F12F500490127 /* Delegate */,
+				F8BDBBB926AAA41B0020C8B2 /* Utilities */,
+				F8977B602694DD9600566561 /* Buttons */,
+				F8925413268621B80009A7D1 /* Views */,
 				F83C8AC9267E83B90074B66A /* AppDelegate.swift */,
 				F83C8ACB267E83B90074B66A /* SceneDelegate.swift */,
-				F83C8ACD267E83B90074B66A /* ViewController.swift */,
 				F83C8ACF267E83B90074B66A /* Main.storyboard */,
 				F83C8AD2267E83C50074B66A /* Assets.xcassets */,
 				F83C8AD4267E83C50074B66A /* LaunchScreen.storyboard */,
@@ -147,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				F85213F2268D70DE00B8D3E8 /* AudioPlayer.swift */,
+				F82561A8269F312300490127 /* Synth.swift */,
+				F8BDBBB326AA62830020C8B2 /* AudioEngine.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -155,6 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				F8925411268616240009A7D1 /* Layer.swift */,
+				F8B101EA2698B940004DFFDD /* Button.swift */,
+				F8BDBBB526AA7B580020C8B2 /* FrequencyGenerator.swift */,
+				F851E94926AB321E00920723 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +224,14 @@
 				F8977B5E2694DD4C00566561 /* sustainButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		F8BDBBB926AAA41B0020C8B2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F8BDBBB726AA99720020C8B2 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,11 +365,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F82561A3269F04AD00490127 /* SynthViewController.swift in Sources */,
 				F83C8ACE267E83B90074B66A /* ViewController.swift in Sources */,
 				F8977B5F2694DD4C00566561 /* sustainButton.swift in Sources */,
 				F83C8ACA267E83B90074B66A /* AppDelegate.swift in Sources */,
+				F8BDBBB626AA7B590020C8B2 /* FrequencyGenerator.swift in Sources */,
+				F851E94A26AB321E00920723 /* Array.swift in Sources */,
+				F8BDBBB826AA99720020C8B2 /* Constants.swift in Sources */,
+				F8B101EB2698B940004DFFDD /* Button.swift in Sources */,
+				F82561A9269F312300490127 /* Synth.swift in Sources */,
 				F83C8ACC267E83B90074B66A /* SceneDelegate.swift in Sources */,
+				F82D97D926A1132B0080E2A2 /* Oscillator.swift in Sources */,
+				F82561A6269F12EE00490127 /* textFieldDelegate.swift in Sources */,
 				F8925412268616240009A7D1 /* Layer.swift in Sources */,
+				F8BDBBB426AA62830020C8B2 /* AudioEngine.swift in Sources */,
 				F8925415268622A80009A7D1 /* PianoView.swift in Sources */,
 				F85213F3268D70DE00B8D3E8 /* AudioPlayer.swift in Sources */,
 			);

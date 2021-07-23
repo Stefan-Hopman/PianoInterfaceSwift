@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0lP-eQ-CFd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="BzS-Dp-Bc6">
+            <objects>
+                <navigationController id="0lP-eQ-CFd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="flT-An-0FR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Zrh-N4-CXx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iiJ-rr-t0U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1327" y="67"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -25,9 +41,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1560" id="7zC-KB-Ffk"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="sustainButton" destination="DKP-oI-hbn" id="cHk-rr-csL"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -40,56 +53,193 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-fu-xJK" userLabel="Lock Button">
-                                <rect key="frame" x="20" y="295" width="46" height="31"/>
+                                <rect key="frame" x="20" y="295" width="31" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="MLA-v8-RSE"/>
+                                    <constraint firstAttribute="width" secondItem="cv0-fu-xJK" secondAttribute="height" multiplier="1:1" id="Suv-ze-KDm"/>
                                     <constraint firstAttribute="height" constant="31" id="lbM-yN-ZCI"/>
                                 </constraints>
-                                <state key="normal" image="scrollLock"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="lock" catalog="system" backgroundImage="unselectedButtonBG"/>
                                 <connections>
                                     <action selector="disableScrolling:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rGb-8l-h4Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKP-oI-hbn" userLabel="Sustain Button">
-                                <rect key="frame" x="348" y="295" width="46" height="31"/>
+                                <rect key="frame" x="363" y="295" width="31" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="cmc-8o-b8m"/>
-                                    <constraint firstAttribute="height" constant="31" id="xog-9k-s50"/>
+                                    <constraint firstAttribute="width" secondItem="DKP-oI-hbn" secondAttribute="height" multiplier="1:1" id="nuk-hu-hB5"/>
                                 </constraints>
                                 <state key="normal" image="sustain"/>
                                 <connections>
-                                    <action selector="sustainSwitch:" destination="sgD-x9-5ij" eventType="touchUpInside" id="51v-8Y-Ztt"/>
-                                    <action selector="sustainSwitch:" destination="hLY-qW-KIs" eventType="touchUpInside" id="Kmm-3P-ESh"/>
+                                    <action selector="sustainControl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UJP-eH-E0H"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJn-pJ-jGn">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EvU-wX-HpP"/>
+                                    <barButtonItem title="Piano" id="gim-bD-LlU"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Oe-kF-Z7e"/>
+                                    <barButtonItem title="Synth" id="3fO-ge-ULf">
+                                        <connections>
+                                            <segue destination="aRF-tR-5da" kind="show" id="sIA-WQ-azI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5zf-jc-aG4"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstItem="cv0-fu-xJK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5VK-HL-NsF"/>
+                            <constraint firstItem="cv0-fu-xJK" firstAttribute="height" secondItem="DKP-oI-hbn" secondAttribute="height" id="9rZ-qK-Wil"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2n0-GU-aEt" secondAttribute="bottom" constant="299" id="IAa-8d-81D"/>
+                            <constraint firstItem="fJn-pJ-jGn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IRM-Li-xwP"/>
+                            <constraint firstItem="fJn-pJ-jGn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="P85-0u-pcq"/>
                             <constraint firstItem="2n0-GU-aEt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ShD-ji-D3E"/>
+                            <constraint firstItem="fJn-pJ-jGn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UPL-lS-aZT"/>
                             <constraint firstItem="2n0-GU-aEt" firstAttribute="top" secondItem="cv0-fu-xJK" secondAttribute="bottom" constant="8" symbolic="YES" id="Yes-eZ-kUu"/>
                             <constraint firstItem="2n0-GU-aEt" firstAttribute="top" secondItem="DKP-oI-hbn" secondAttribute="bottom" constant="8" symbolic="YES" id="aDp-Y5-w2H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DKP-oI-hbn" secondAttribute="trailing" constant="20" id="fT7-wq-RR8"/>
                             <constraint firstItem="2n0-GU-aEt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qQT-BG-6fn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tmE-3w-DlR"/>
                     <connections>
                         <outlet property="lockButton" destination="cv0-fu-xJK" id="tDW-qE-4Hi"/>
                         <outlet property="pianoView" destination="hLY-qW-KIs" id="2xJ-Wr-eLR"/>
                         <outlet property="scrollView" destination="2n0-GU-aEt" id="wiY-Tt-wlq"/>
+                        <outlet property="sustainButton" destination="DKP-oI-hbn" id="2Wx-EH-Sck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="sgD-x9-5ij" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
+        <!--Synth View Controller-->
+        <scene sceneID="gz7-fI-xqt">
+            <objects>
+                <viewController id="aRF-tR-5da" customClass="SynthViewController" customModule="pianoUserInterface" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ec8-cU-vCD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="440" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAM-Kw-7NI">
+                                <rect key="frame" x="118.5" y="428" width="177" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="37i-I2-CFb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNg-0a-sVP">
+                                <rect key="frame" x="182" y="538" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XNg-0a-sVP" secondAttribute="height" multiplier="1:1" id="QQb-hk-zCJ"/>
+                                    <constraint firstAttribute="width" constant="50" id="faR-08-oVo"/>
+                                </constraints>
+                                <state key="normal" image="play">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="togglePlay:" destination="aRF-tR-5da" eventType="touchUpInside" id="Ed8-Q7-0ER"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuY-q8-Azl">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="91l-89-nHX"/>
+                                    <barButtonItem title="Piano" id="0t2-Rh-ySX"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wWr-96-bgv"/>
+                                    <barButtonItem title="Synth" id="Cuo-Dg-kxH"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YFa-xx-DAF"/>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4t9-8B-hYQ">
+                                <rect key="frame" x="46" y="658" width="322" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10o-jp-ogX" userLabel="Sine">
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="10o-jp-ogX" secondAttribute="height" multiplier="17:10" id="9Cq-MV-Dxw"/>
+                                            <constraint firstAttribute="width" constant="102" id="xGb-a3-8hS"/>
+                                        </constraints>
+                                        <state key="normal" image="SineIcon">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setSine:" destination="aRF-tR-5da" eventType="touchUpInside" id="4e5-v3-eKC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-yQ-ult" userLabel="Square">
+                                        <rect key="frame" x="110" y="0.0" width="102" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1hU-yQ-ult" secondAttribute="height" multiplier="17:10" id="fRS-fq-65u"/>
+                                            <constraint firstAttribute="width" constant="102" id="xQT-pc-oKH"/>
+                                        </constraints>
+                                        <state key="normal" image="SquareIcon"/>
+                                        <connections>
+                                            <action selector="setSquare:" destination="aRF-tR-5da" eventType="touchUpInside" id="A0O-lA-i6S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-Kr-K0V" userLabel="Saw">
+                                        <rect key="frame" x="220" y="0.0" width="102" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="102" id="DL0-NI-cBa"/>
+                                            <constraint firstAttribute="width" secondItem="5D7-Kr-K0V" secondAttribute="height" multiplier="17:10" id="xgr-vB-VXb"/>
+                                        </constraints>
+                                        <state key="normal" image="SawtoothIcon"/>
+                                        <connections>
+                                            <action selector="setSaw:" destination="aRF-tR-5da" eventType="touchUpInside" id="dba-df-PvM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fe0-g8-J0P"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FuY-q8-Azl" firstAttribute="trailing" secondItem="fe0-g8-J0P" secondAttribute="trailing" id="1R7-F3-1SA"/>
+                            <constraint firstItem="XNg-0a-sVP" firstAttribute="centerX" secondItem="ec8-cU-vCD" secondAttribute="centerX" id="Imt-nI-8yX"/>
+                            <constraint firstItem="FuY-q8-Azl" firstAttribute="top" secondItem="4t9-8B-hYQ" secondAttribute="bottom" constant="95" id="WOv-3k-6BO"/>
+                            <constraint firstItem="FuY-q8-Azl" firstAttribute="leading" secondItem="fe0-g8-J0P" secondAttribute="leading" id="aWv-se-zT7"/>
+                            <constraint firstItem="4t9-8B-hYQ" firstAttribute="centerX" secondItem="ec8-cU-vCD" secondAttribute="centerX" id="kyu-P8-cZX"/>
+                            <constraint firstItem="FuY-q8-Azl" firstAttribute="bottom" secondItem="fe0-g8-J0P" secondAttribute="bottom" id="lyW-pY-NhN"/>
+                            <constraint firstItem="VAM-Kw-7NI" firstAttribute="centerX" secondItem="ec8-cU-vCD" secondAttribute="centerX" id="vVM-fl-7Zd"/>
+                            <constraint firstItem="FuY-q8-Azl" firstAttribute="top" secondItem="XNg-0a-sVP" secondAttribute="bottom" constant="225" id="vxO-A2-h4B"/>
+                            <constraint firstItem="VAM-Kw-7NI" firstAttribute="top" secondItem="fe0-g8-J0P" secondAttribute="top" constant="340" id="xVK-yk-ZTb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oai-qJ-Yhr"/>
+                    <connections>
+                        <outlet property="frequencyText" destination="VAM-Kw-7NI" id="Ed1-ey-qjX"/>
+                        <outlet property="playButton" destination="XNg-0a-sVP" id="2cx-OY-Yze"/>
+                        <outlet property="sawButton" destination="5D7-Kr-K0V" id="ACH-lQ-9eF"/>
+                        <outlet property="sineButton" destination="10o-jp-ogX" id="784-06-ak1"/>
+                        <outlet property="squareButton" destination="1hU-yQ-ult" id="Hjf-Ui-hDB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bd-lO-hye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="773.91304347826087" y="93.75"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="scrollLock" width="30" height="30"/>
-        <image name="sustain" width="30" height="30"/>
+        <image name="SawtoothIcon" width="29" height="17"/>
+        <image name="SineIcon" width="31" height="9"/>
+        <image name="SquareIcon" width="31" height="9"/>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="play" width="76" height="76"/>
+        <image name="sustain" width="19" height="11"/>
+        <image name="unselectedButtonBG" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

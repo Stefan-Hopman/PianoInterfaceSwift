@@ -9,15 +9,6 @@ import UIKit
 
 class PianoView: UIView{
     
-    
-    @IBOutlet weak var sustainButton: UIButton!
-    var delaysContentTouches: Bool {false}
-    //delaysContentTouches = false
-    //MARK: Look At It With Joga Singh
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
-    
     //MARK: Key Properties
     var numberOfKeys: Int = 10
     var totalNumberOfWhiteKeys:Int = 52
@@ -25,34 +16,38 @@ class PianoView: UIView{
     var xPositionKey: Float = 0.0
     var yPositionKey: Float = 0.0
     var keyArray: [Key] = []
-    var keysHeldDown: [Int] = []
     var orginalColorsOfKey: [CGColor] = []
     var whiteKeysArray: [WhiteKey] = [] //holds all the white keys
     var blackKeysArray: [BlackKey] = [] //holds all the black keys
+    var isSustainSelected:Bool = false
+
     
     
     //MARK: Touch Functions
     //All the functions check if sustain is pressed
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(sustainButton.isSelected == false){
+        if(isSustainSelected == false){
             sustainOffTouchesBegan(touches)
         }
         else{sustainOnTouchesBegan(touches)}
+        Synth.shared.start()
     }
 //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        deactivateKeys(touches)
 //        stopSound()
 //    }
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(sustainButton.isSelected == false){
+        if(isSustainSelected == false){
         deactivateKeys(touches)
+        //Synth.shared.stop()
 //       stopSound()
         }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(sustainButton.isSelected == false){
+        if(isSustainSelected == false){
         deactivateKeys(touches)
+        //Synth.shared.stop()
         //stopSound()
         }
     }
@@ -64,15 +59,6 @@ class PianoView: UIView{
     }
     var contentViewWidth : Int{
         Int(self.bounds.width) // the width of the content view
-    }
-    
-    //MARK: Random Color Function
-    func randomColor() -> CGColor{
-        let ranRed = CGFloat(drand48()) //generates a random red, green, blue values from 0.0 to 1.0
-        let ranGreen = CGFloat(drand48())
-        let ranBlue = CGFloat(drand48())
-        let ranColor = CGColor(red: ranRed, green: ranGreen, blue: ranBlue, alpha: 1.0)//generates a random color code
-        return ranColor
     }
     
     //MARK: Set Properties Of The White Keys
@@ -179,16 +165,21 @@ class PianoView: UIView{
         }
     }
     
-    //MARK: This function turns off all the keys pressed
+    //MARK: This function
     func sustainOnTouchesBegan (_ touches: Set<UITouch>){
         for touch in touches {
             let location = touch.location(in: self) //this function finds all your presses and the for loop is for multiple touces
             guard let key = findSelectedKeyFrom(location) else { return }
+            let tempSynth = synthNote(frequency: key.frequency)
+            
             if (key.isSelected == true){
             key.isSelected = false
+                Synth.shared.sustainStop(key: key)
             }
             else{
                 key.isSelected = true
+                Synth.shared.noteArray.append(tempSynth)
+                Synth.shared.start()
             }
         }
     }
@@ -198,21 +189,21 @@ class PianoView: UIView{
             let location = touch.location(in: self) //this function finds all your presses and the for loop is for multiple touces
             guard let key = findSelectedKeyFrom(location) else { return }
             key.isSelected = true
-            //playSound()
+    
         }
     }
     
-    //switches the sustain button from on to off
-    @IBAction func sustainSwitch(_ sender: Any) {
-        if(sustainButton.isSelected == false){
-            sustainButton.isSelected = true
-        }
-        else{
-            sustainButton.isSelected = false
-        }
-        for i in 0..<keyArray.count{
-            keyArray[i].isSelected = false //resets all the keys pressed
-        }
-    }
+//    //switches the sustain button from on to off
+//    @IBAction func sustainSwitch(_ sender: Any) {
+//        if(sustainButton.isSelected == false){
+//            sustainButton.isSelected = true
+//        }
+//        else{
+//            sustainButton.isSelected = false
+//        }
+//        for i in 0..<keyArray.count{
+//            keyArray[i].isSelected = false //resets all the keys pressed
+//        }
+//    }
     
 }
